@@ -1,27 +1,69 @@
-# ResolveStudioTest
+# Prueba técnica para Resolve Studio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 8.3.8.
 
-## Development server
+## Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Instale y ejecute [Docker](https://www.docker.com/) *(este proyecto usa **docker-compose**)*.
 
-## Code scaffolding
+- Descargue o clone este repositorio GIT en su máquina local.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Ejecute una terminal y cambie el directorio a la raíz de este proyecto.
 
-## Build
+## Entorno de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Ejecute `docker-compose up develop` para iniciar los **contenedores de Docker** *(espere mientras se completa la ejecución del comando)*, al terminar, se tendrá un servidor local disponible en `http://localhost:4200/`. La aplicación se actualiza automáticamente si cambia cualquier archivo fuente.
 
-## Running unit tests
+> Ejecute `docker-compose up --build develop` si cambia cualquier archivo de Docker.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Detener
 
-## Running end-to-end tests
+- Ejecute `docker-compose stop` para **detener** los contenedores.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+*o*
 
-## Further help
+- Ejecute `docker-compose down` para **detener** y **eliminar** los contenedores.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> Agregue el argumento `-v` o `--volumes` para eliminar los volúmenes.
+
+## Ejecutar comandos
+
+Ejecute `docker-compose exec develop bash` para entrar a la terminal del contenedor.
+
+> Dentro del contenedor puede instalar **dependencias de NPM** o cualquier otro comando de Angular.
+
+## Comandos Angular
+
+Ejecute `ng generate component component-name` para generar un nuevo componente. También puede usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+#### Módulo
+
+Ejecute `ng g m DIRECTORY/NAME --flat` para crear un nuevo módulo.
+
+#### Página
+
+Ejecute `ng g c pages/NAME` para crear una nueva página.
+
+#### Componente
+
+Ejecute `ng g c components/NAME` para crear un nuevo componente.
+
+#### Interface
+
+Ejecute `ng g i interfaces/NAME interface` para crear una nueva interface.
+
+#### Enum
+
+Ejecute `ng g e enums/NAME` para crear un nuevo enum.
+
+#### Servicio
+
+Ejecute `ng g s services/NAME` para crear un nuevo servicio.
+
+#### Pipe
+
+Ejecute `ng g p pipes/NAME` para crear un nuevo pipe.
+
+## Despliegue
+
+- Ejecute el comando `npm run deploy` para compilar para producción y publicar en **Firebase Hosting**.
