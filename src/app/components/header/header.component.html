@@ -14,8 +14,8 @@
 
     <div class="navbar-menu" [ngClass]="{ 'is-active': burger }">
       <div class="navbar-start">
-        <a class="navbar-item" routerLink="/admin">Inicio</a>
-        <a class="navbar-item">Usuarios</a>
+        <a class="navbar-item" routerLink="/admin" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+        <a class="navbar-item" routerLink="/admin/users" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Usuarios</a>
         <a class="navbar-item">Empresas</a>
         <a class="navbar-item">Dashboard</a>
       </div>

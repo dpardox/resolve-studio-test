@@ -7,6 +7,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent },
+      { path: 'users', component: UserComponent },
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'admin' }

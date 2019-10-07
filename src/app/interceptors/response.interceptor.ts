@@ -1,45 +1,31 @@
-// import { Injectable, Injector } from '@angular/core';
-// import {
-//   HttpEvent,
-//   HttpHandler,
-//   HttpInterceptor,
-//   HttpRequest,
-//   HttpResponse,
-//   HttpErrorResponse
-// } from '@angular/common/http';
-// import { SessionProvider } from '../providers/session/session';
-// import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/operator/do';
-// import { ToastController } from 'ionic-angular';
+import { Injectable } from '@angular/core';
+import { HttpHandler, HttpInterceptor, HttpRequest, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
-// @Injectable()
-// export class ResponseInterceptor implements HttpInterceptor {
-//   constructor(private toastCtrl: ToastController, private session: SessionProvider) {}
+@Injectable()
+export class ResponseInterceptor implements HttpInterceptor {
 
-//   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//     return next.handle(request).do(
-//       (event: HttpEvent<any>) => {
-//         if (event instanceof HttpResponse) {
-//           // Response manager
-//           console.log('Interceptor response', event);
-//         }
-//       },
-//       (exception: any) => {
-//         if (exception instanceof HttpErrorResponse) {
-//           switch (exception.status) {
-//             case 401:
-//               this.session.logout('No tienes una sesión activa');
-//               break;
-//             default:
-//               this.toast(exception.status, exception.statusText);
-//               console.error('Interceptor exception:', exception);
-//           }
-//         }
-//       }
-//     );
-//   }
+  constructor(private authService: AuthService, private router: Router) { }
 
-//   private toast(status: number, statusText: string) {
-//     this.toastCtrl.create({ message: `${status} - ${statusText}`, duration: 3000, position: 'top' }).present();
-//   }
-// }
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    return next.handle(request).pipe(
+      catchError((error: HttpErrorResponse) => {
+        switch (error.status) {
+          case 401:
+            this.authService.session = null;
+            this.router.navigate(['/login']);
+            break;
+          default:
+            console.error('Interceptor exception:', error);
+            alert(`${error.status} - ${error.statusText}`);
+        }
+
+        return throwError(error);
+      })
+    );
+  }
+
+}
