@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { RequestInterceptor } from './interceptors/request.interceptor';
 import { HomeComponent } from './pages/home/home.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 // import { ResponseInterceptor } from './interceptors/response.interceptor';
 
 @NgModule({
@@ -17,7 +19,9 @@ import { HomeComponent } from './pages/home/home.component';
     AppComponent,
     LoginComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

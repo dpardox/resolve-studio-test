@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         this.router.navigate(['/admin']);
       }, (exception) => {
-        alert('Ocurrio un error!');
+        alert('Verifique su correo electrónico y contraseña.');
         this.loading = false;
       }
     );
