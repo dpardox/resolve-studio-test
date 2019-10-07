@@ -1,0 +1,44 @@
+<div class="app-login">
+  <div class="box has-padding-40-tablet">
+    <figure class="image has-margin-bottom-20">
+      <img src="./assets/images/logo.png">
+    </figure>
+
+    <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" formControlName="email" placeholder="Correo electónico">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right" *ngIf="email.valid">
+            <i class="fas fa-check"></i>
+          </span>
+          <span class="icon is-small is-right" *ngIf="email.invalid && (email.dirty || email.touched || f.submitted)">
+            <i class="fas fa-times"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="password" formControlName="password" placeholder="Contraseña">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <span class="icon is-small is-right" *ngIf="password.invalid && (password.dirty || password.touched || f.submitted)">
+            <i class="fas fa-times"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button is-medium is-fullwidth is-primary" [ngClass]="{ 'is-loading': loading }" type="submit">Iniciar sesión</button>
+        </p>
+      </div>
+    </form>
+
+    <div class="has-text-centered has-margin-top-20">
+      <a class="has-text-grey-light">Recordar contraseña</a>
+    </div>
+  </div>
+</div>

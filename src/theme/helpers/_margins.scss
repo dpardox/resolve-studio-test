@@ -1,0 +1,14 @@
+$margin-sizes: (20);
+$margin-names: ('top', 'right', 'bottom', 'left');
+
+.has-margin- {
+  @each $position in $margin-names {
+    $i: index($margin-names, $position);
+
+    @each $size in $margin-sizes {
+      &#{$position}-#{$size} {
+        margin-#{nth($margin-names, $i)}: #{$size}px !important;
+      }
+    }
+  }
+}

@@ -1,5 +1,12 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
 // Variables
 @import './theme/utilities/variables';
 
 // Bulma css framework
 @import 'node_modules/bulma/bulma.sass';
+
+// Helpers
+@import 'theme/helpers/margins';
+@import 'theme/helpers/paddings';

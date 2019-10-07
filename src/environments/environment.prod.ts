@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  entrypoint: {
+    api: 'http://localhost/api'
+  }
 };

@@ -60,6 +60,10 @@ Ejecute `ng g e enums/NAME` para crear un nuevo enum.
 
 Ejecute `ng g s services/NAME` para crear un nuevo servicio.
 
+#### Guardia
+
+Ejecute `ng g g guards/NAME` para crear un nuevo guardia.
+
 #### Pipe
 
 Ejecute `ng g p pipes/NAME` para crear un nuevo pipe.
