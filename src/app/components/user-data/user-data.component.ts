@@ -20,11 +20,11 @@ export class UserDataComponent implements OnInit {
   ngOnInit() { }
 
   public delete(id: number) {
-    // if (confirm('Confirme para eliminar el usuario')) {
-    //   this.userService.delete(id).subscribe((response) => {
-    //     this.deleted.emit({ id: response.id });
-    //   });
-    // }
+    if (confirm('Confirme para eliminar el usuario')) {
+      this.userService.delete(id).subscribe((response) => {
+        this.deleted.emit({ id: response.id });
+      });
+    }
   }
 
 }

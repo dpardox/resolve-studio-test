@@ -27,4 +27,8 @@ export class UserService {
     return this.http.put<User>(`${environment.entrypoint.api}/users/${id}`, data);
   }
 
+  public delete(id: number): Observable<User> {
+    return this.http.delete<User>(`${environment.entrypoint.api}/users/${id}`);
+  }
+
 }

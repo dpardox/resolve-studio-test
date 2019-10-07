@@ -11,8 +11,7 @@
 
     <div class="columns is-multiline is-centered">
       <div class="column is-6-tablet is-4-desktop" *ngFor="let user of users; let i = index">
-        <app-user-data [user]="user"></app-user-data>
-        <!-- <app-user-data [user]="user" (deleted)="deleteCustomer(i)"></app-customer-data> -->
+        <app-user-data [user]="user" (deleted)="delete(i)"></app-user-data>
       </div>
     </div>
   </div>
