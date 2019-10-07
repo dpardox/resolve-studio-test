@@ -31,4 +31,8 @@ export class AuthService {
     return this.http.post<LoginResponse>(`${environment.entrypoint.api}/auth/login`, data);
   }
 
+  public logout() {
+    return this.http.get(`${environment.entrypoint.api}/auth/logout`);
+  }
+
 }

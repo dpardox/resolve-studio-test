@@ -1,0 +1,10 @@
+@import '~src/theme/utilities/variables';
+@import '~bulma/sass/utilities/initial-variables';
+
+.app-header {
+  border-bottom: thin solid $grey-lighter;
+}
+
+.navbar-brand img {
+  margin-top: 8px;
+}

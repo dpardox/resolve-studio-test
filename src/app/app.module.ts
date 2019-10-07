@@ -12,6 +12,7 @@ import { RequestInterceptor } from './interceptors/request.interceptor';
 import { HomeComponent } from './pages/home/home.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { HeaderComponent } from './components/header/header.component';
 // import { ResponseInterceptor } from './interceptors/response.interceptor';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     AdminComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
