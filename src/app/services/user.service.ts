@@ -11,7 +11,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  public get(id: number): Observable<User> {
+    return this.http.get<User>(`${environment.entrypoint.api}/users/show/${id}`);
+  }
+
   public list(): Observable<User[]> {
     return this.http.get<User[]>(`${environment.entrypoint.api}/users`);
   }
+
+  public create(data: User): Observable<User> {
+    return this.http.post<User>(`${environment.entrypoint.api}/users`, data);
+  }
+
+  public update(id: number, data: User): Observable<User> {
+    return this.http.put<User>(`${environment.entrypoint.api}/users/${id}`, data);
+  }
+
 }
