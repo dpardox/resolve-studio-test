@@ -3,11 +3,11 @@ import { User } from 'src/app/interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
   public users: User[];
 

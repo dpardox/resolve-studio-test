@@ -15,7 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { HeaderComponent } from './components/header/header.component';
-import { UserComponent } from './pages/user/user.component';
+import { UsersComponent } from './pages/users/users.component';
 import { UserDataComponent } from './components/user-data/user-data.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { UserDataComponent } from './components/user-data/user-data.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HeaderComponent,
-    UserComponent,
+    UsersComponent,
     UserDataComponent
   ],
   imports: [
