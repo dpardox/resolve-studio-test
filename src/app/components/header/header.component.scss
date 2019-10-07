@@ -1,10 +1,11 @@
 @import '~src/theme/utilities/variables';
 @import '~bulma/sass/utilities/initial-variables';
 
-.app-header {
-  border-bottom: thin solid $grey-lighter;
+.navbar {
+  border-bottom: 1px solid $grey-light;
+
+  &-brand img {
+    margin-top: 8px;
+  }
 }
 
-.navbar-brand img {
-  margin-top: 8px;
-}

@@ -5,3 +5,13 @@ $family-sans-serif: 'Lato', sans-serif;
 $red: #ff0030;
 $turquoise: #00c3c9;
 $yellow: #ffbc32;
+$grey: #8d9398;
+$grey-light: #c3cbcf;
+$grey-lighter: #f6f7f8;
+
+// Card
+$card-shadow: none;
+
+.card {
+  border-radius: 3px;
+}

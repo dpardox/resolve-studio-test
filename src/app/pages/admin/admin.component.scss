@@ -1,0 +1,7 @@
+@import '~src/theme/utilities/variables';
+@import '~bulma/sass/utilities/initial-variables';
+
+.background {
+  background-color: $grey-lighter;
+  min-height: 100vh;
+}
