@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public get(id: number): Observable<User> {
-    return this.http.get<User>(`${environment.entrypoint.api}/users/show/${id}`);
+    return this.http.get<User>(`${environment.entrypoint.api}/users/${id}`);
   }
 
   public list(): Observable<User[]> {
