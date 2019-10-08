@@ -20,7 +20,6 @@ export class ResponseInterceptor implements HttpInterceptor {
             break;
           default:
             console.error('Interceptor exception:', error);
-            alert(`${error.status} - ${error.statusText}`);
         }
 
         return throwError(error);

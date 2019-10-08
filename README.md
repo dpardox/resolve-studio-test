@@ -10,11 +10,23 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 - Ejecute una terminal y cambie el directorio a la raíz de este proyecto.
 
+- Copie el archivo `.env.example` y nombrelo `.env`, ajuste las variables de entorno si es necesario.
+
+## Entorno de producción
+
+- Ejecute `docker-compose up prod` para compilar Angular en modo de producción y exponerlo en un servidor NGINX disponible en `http://localhost:8080/`.
+
+> El puerto correspone al valor por defecto en la propiedad `PORT_PROD` del archivo de entorno `.env`.
+
+> Espere mientras se completa la ejecución del comando.
+
 ## Entorno de desarrollo
 
 - Ejecute `docker-compose up develop` para iniciar los **contenedores de Docker** *(espere mientras se completa la ejecución del comando)*, al terminar, se tendrá un servidor local disponible en `http://localhost:4200/`. La aplicación se actualiza automáticamente si cambia cualquier archivo fuente.
 
 > Ejecute `docker-compose up --build develop` si cambia cualquier archivo de Docker.
+
+> El puerto correspone al valor por defecto en la propiedad `PORT_DEVELOP` del archivo de entorno `.env`.
 
 ## Detener
 
