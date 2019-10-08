@@ -1,0 +1,63 @@
+<section class="section">
+  <div class="container">
+    <h1 class="is-size-1 has-text-centered">Empresa</h1>
+    <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate *ngIf="loaded else loading">
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" formControlName="name" placeholder="Nombre">
+              <span class="icon is-small is-left has-text-grey-light">
+                <i class="fas fa-building"></i>
+              </span>
+              <span class="icon is-small is-right has-text-primary" *ngIf="name.valid">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="icon is-small is-right has-text-danger" *ngIf="name.invalid && (name.dirty || name.touched || f.submitted)">
+                <i class="fas fa-times"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" formControlName="address" placeholder="Dirección">
+              <span class="icon is-small is-left has-text-grey-light">
+                <i class="fas fa-map-marker-alt"></i>
+              </span>
+              <span class="icon is-small is-right has-text-primary" *ngIf="address.valid">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="icon is-small is-right has-text-danger" *ngIf="address.invalid && (address.dirty || address.touched || f.submitted)">
+                <i class="fas fa-times"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" formControlName="phone" placeholder="Teléfono">
+              <span class="icon is-small is-left has-text-grey-light">
+                <i class="fas fa-phone"></i>
+              </span>
+              <span class="icon is-small is-right has-text-primary" *ngIf="phone.valid">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="icon is-small is-right has-text-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched || f.submitted)">
+                <i class="fas fa-times"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <button class="button is-medium is-fullwidth is-primary" [ngClass]="{ 'is-loading': sending }" type="submit">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<ng-template #loading>
+  <h1 class="has-text-centered is-size-5 has-text-grey-light">Cargando...</h1>
+</ng-template>

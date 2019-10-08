@@ -9,6 +9,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { CompanyComponent } from './pages/company/company.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
@@ -21,6 +23,9 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent },
       { path: 'user', component: UserComponent },
       { path: 'user/:id', component: UserComponent },
+      { path: 'companies', component: CompaniesComponent },
+      { path: 'company', component: CompanyComponent },
+      { path: 'company/:id', component: CompanyComponent },
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'admin' }

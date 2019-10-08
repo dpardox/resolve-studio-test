@@ -18,6 +18,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDataComponent } from './components/user-data/user-data.component';
 import { UserComponent } from './pages/user/user.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { CompanyComponent } from './pages/company/company.component';
+import { CompanyDataComponent } from './components/company-data/company-data.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { UserComponent } from './pages/user/user.component';
     HeaderComponent,
     UsersComponent,
     UserDataComponent,
-    UserComponent
+    UserComponent,
+    CompaniesComponent,
+    CompanyComponent,
+    CompanyDataComponent
   ],
   imports: [
     BrowserModule,
