@@ -3,47 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RequestInterceptor } from './interceptors/request.interceptor';
 import { ResponseInterceptor } from './interceptors/response.interceptor';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
-import { HeaderComponent } from './components/header/header.component';
-import { UsersComponent } from './pages/users/users.component';
-import { UserDataComponent } from './components/user-data/user-data.component';
-import { UserComponent } from './pages/user/user.component';
-import { CompaniesComponent } from './pages/companies/companies.component';
-import { CompanyComponent } from './pages/company/company.component';
-import { CompanyDataComponent } from './components/company-data/company-data.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    AdminComponent,
-    HomeComponent,
-    ForgotPasswordComponent,
-    ResetPasswordComponent,
-    HeaderComponent,
-    UsersComponent,
-    UserDataComponent,
-    UserComponent,
-    CompaniesComponent,
-    CompanyComponent,
-    CompanyDataComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    PagesModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

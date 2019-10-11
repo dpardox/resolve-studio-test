@@ -50,35 +50,35 @@ Ejecute `ng generate component component-name` para generar un nuevo componente.
 
 #### Módulo
 
-Ejecute `ng g m DIRECTORY/NAME --flat` para crear un nuevo módulo.
+Ejecute `ng g m <directory>/<name> --flat -m <modulo>.module` para crear un nuevo módulo.
 
 #### Página
 
-Ejecute `ng g c pages/NAME` para crear una nueva página.
+Ejecute `ng g c pages/<name>` para crear una nueva página.
 
 #### Componente
 
-Ejecute `ng g c components/NAME` para crear un nuevo componente.
+Ejecute `ng g c components/<name>` para crear un nuevo componente.
 
 #### Interface
 
-Ejecute `ng g i interfaces/NAME interface` para crear una nueva interface.
+Ejecute `ng g i interfaces/<name> interface` para crear una nueva interface.
 
 #### Enum
 
-Ejecute `ng g e enums/NAME` para crear un nuevo enum.
+Ejecute `ng g e enums/<name>` para crear un nuevo enum.
 
 #### Servicio
 
-Ejecute `ng g s services/NAME` para crear un nuevo servicio.
+Ejecute `ng g s services/<name>` para crear un nuevo servicio.
 
 #### Guardia
 
-Ejecute `ng g g guards/NAME` para crear un nuevo guardia.
+Ejecute `ng g g guards/<name>` para crear un nuevo guardia.
 
 #### Pipe
 
-Ejecute `ng g p pipes/NAME` para crear un nuevo pipe.
+Ejecute `ng g p pipes/<name>` para crear un nuevo pipe.
 
 ## Despliegue
 
