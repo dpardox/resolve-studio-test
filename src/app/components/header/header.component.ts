@@ -17,10 +17,9 @@ export class HeaderComponent implements OnInit {
 
   public logout() {
     if (confirm('¿Cerrar sesión?')) {
-      this.authService.logout().subscribe(() => {
-        this.authService.session = null;
-        this.router.navigate(['/login']);
-      });
+      this.authService.logout().subscribe();
+      this.authService.session = null;
+      this.router.navigate(['/login']);
     }
   }
 

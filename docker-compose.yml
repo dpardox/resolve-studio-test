@@ -1,13 +1,13 @@
 version: '3.7'
 services:
   develop:
-    image: ${AUTHOR}/${PROJECT}:develop
-    container_name: ${PROJECT}-develop
+    image: ${AUTHOR}/${PROJECT}:dev
+    container_name: ${PROJECT}-dev
     build:
       context: .
       dockerfile: dev.dockerfile
     ports:
-      - "${PORT_DEVELOP}:4200"
+      - "${PORT_DEV}:4200"
       - "49153:49153"
       - "9876:9876"
       - "49152:49152"

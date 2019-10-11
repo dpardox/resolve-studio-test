@@ -26,7 +26,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 > Ejecute `docker-compose up --build develop` si cambia cualquier archivo de Docker.
 
-> El puerto correspone al valor por defecto en la propiedad `PORT_DEVELOP` del archivo de entorno `.env`.
+> El puerto correspone al valor por defecto en la propiedad `PORT_DEV` del archivo de entorno `.env`.
 
 ## Detener
 
