@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 
-import { AdminComponent } from './admin/admin.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyComponent } from './company/company.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -16,7 +15,6 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AdminComponent,
     CompaniesComponent,
     CompanyComponent,
     ForgotPasswordComponent,
@@ -31,10 +29,10 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ComponentsModule,
+    ComponentsModule
   ],
   exports: [
-    AdminComponent,
+    ComponentsModule,
     CompaniesComponent,
     CompanyComponent,
     ForgotPasswordComponent,
@@ -42,7 +40,7 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     ResetPasswordComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
   ]
 })
 export class PagesModule { }

@@ -1,31 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
-import { LoginComponent } from './pages/login/login.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
-import { UsersComponent } from './pages/users/users.component';
-import { UserComponent } from './pages/user/user.component';
-import { CompaniesComponent } from './pages/companies/companies.component';
-import { CompanyComponent } from './pages/company/company.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
-  { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [NotAuthGuard] },
-  { path: 'reset-password/:token', component: ResetPasswordComponent, canActivate: [NotAuthGuard] },
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
   {
-    path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
+    path: '',
+    component: AuthLayoutComponent,
+    canActivate: [NotAuthGuard],
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'users', component: UsersComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'user/:id', component: UserComponent },
-      { path: 'companies', component: CompaniesComponent },
-      { path: 'company', component: CompanyComponent },
-      { path: 'company/:id', component: CompanyComponent },
+      {
+        path: '',
+        loadChildren: () => import('./layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+      }
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'admin' }

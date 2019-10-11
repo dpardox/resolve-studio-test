@@ -54,7 +54,7 @@ Ejecute `ng g m <directory>/<name> --flat -m <modulo>.module` para crear un nuev
 
 #### Página
 
-Ejecute `ng g c pages/<name>` para crear una nueva página.
+Ejecute `ng g c pages/<name>-page` para crear una nueva página.
 
 #### Componente
 
@@ -80,6 +80,8 @@ Ejecute `ng g g guards/<name>` para crear un nuevo guardia.
 
 Ejecute `ng g p pipes/<name>` para crear un nuevo pipe.
 
-## Despliegue
+#### Layout
 
-- Ejecute el comando `npm run deploy` para compilar para producción y publicar en **Firebase Hosting**.
+- Ejecute `ng g c layouts/<name>-layout` para añadir el componente a los modulos.
+
+- Ejecute `ng g m layouts/<name>-layout --routing` para crear el modulo del componente y el modulo de rutas.
