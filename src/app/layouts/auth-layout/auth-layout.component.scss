@@ -1,0 +1,26 @@
+@import '~src/theme/utilities/variables';
+@import '~bulma/sass/utilities/mixins';
+
+.auth {
+  background-color: $grey-lighter;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    background-color: $white;
+  }
+
+  .box {
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .image {
+    max-width: 130px;
+    margin: 0 auto;
+  }
+}
+
