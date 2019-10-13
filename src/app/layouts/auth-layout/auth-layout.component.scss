@@ -16,6 +16,10 @@
   .box {
     max-width: 460px;
     width: 100%;
+
+    @include mobile {
+      box-shadow: none;
+    }
   }
 
   .image {

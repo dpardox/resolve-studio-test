@@ -12,6 +12,9 @@ import { UserComponent } from './user/user.component';
 import { UsersComponent } from './users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FilePageComponent } from './file-page/file-page.component';
+import { FilesPageComponent } from './files-page/files-page.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     ResetPasswordComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    FilePageComponent,
+    FilesPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +38,6 @@ import { RouterModule } from '@angular/router';
     ComponentsModule
   ],
   exports: [
-    ComponentsModule,
     CompaniesComponent,
     CompanyComponent,
     ForgotPasswordComponent,

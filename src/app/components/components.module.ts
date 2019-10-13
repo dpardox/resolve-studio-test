@@ -4,12 +4,14 @@ import { CompanyDataComponent } from './company-data/company-data.component';
 import { HeaderComponent } from './header/header.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { RouterModule } from '@angular/router';
+import { SourceCardComponent } from './source-card/source-card.component';
 
 @NgModule({
   declarations: [
     CompanyDataComponent,
     HeaderComponent,
-    UserDataComponent
+    UserDataComponent,
+    SourceCardComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     CompanyDataComponent,
     HeaderComponent,
-    UserDataComponent
+    UserDataComponent,
+    SourceCardComponent
   ]
 })
 export class ComponentsModule { }

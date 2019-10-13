@@ -13,7 +13,6 @@ export class RequestInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
         Authorization: session ? `${session.token_type} ${session.access_token}` : ''
       }
     });

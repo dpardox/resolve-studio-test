@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="container" *ngIf="sources else loading">
+    <div class="has-text-centered has-margin-bottom-20">
+      <a class="button is-medium is-primary" routerLink="/admin/file">
+        <span class="icon">
+          <i class="fas fa-file-upload"></i>
+        </span>
+        <span>Nueva fuente de tráfico</span>
+      </a>
+    </div>
+
+    <div class="columns is-multiline is-centered">
+      <div class="column is-6-tablet is-4-desktop" *ngFor="let source of sources; let i = index">
+        <app-source-card [source]="source" (deleted)="delete(i)"></app-source-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <h1 class="has-text-centered is-size-5 has-text-grey-lighter">Cargando...</h1>
+</ng-template>
