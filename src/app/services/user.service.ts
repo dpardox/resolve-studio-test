@@ -31,4 +31,8 @@ export class UserService {
     return this.http.delete<User>(`${environment.entrypoint.api}/users/${id}`);
   }
 
+  public admins(): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.entrypoint.api}/users/admins`);
+  }
+
 }

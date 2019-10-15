@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Source } from 'src/app/interfaces/source.interface';
 import { SourceService } from 'src/app/services/source.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-files-page',
@@ -11,10 +12,10 @@ export class FilesPageComponent implements OnInit {
 
   public sources: Source[];
 
-  constructor(private sourceService: SourceService) { }
+  constructor(private sourceService: SourceService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.sourceService.list().subscribe((response) => {
+    this.sourceService.admin(this.authService.session.user.id).subscribe((response) => {
       this.sources = response;
     });
   }

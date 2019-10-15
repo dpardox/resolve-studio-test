@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoginRequest, LoginResponse } from '../interfaces/login.interface';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  get session(): LoginResponse {
+  get session(): { credentials: LoginResponse, user: User } {
     return JSON.parse(localStorage.getItem('session'));
   }
 
-  set session(data: LoginResponse) {
+  set session(data: { credentials: LoginResponse, user: User }) {
     if (data) {
       localStorage.setItem('session', JSON.stringify(data));
     } else {
@@ -33,6 +34,10 @@ export class AuthService {
 
   public logout() {
     return this.http.get(`${environment.entrypoint.api}/auth/logout`);
+  }
+
+  public user(): Observable<User> {
+    return this.http.get<User>(`${environment.entrypoint.api}/auth/user`);
   }
 
 }

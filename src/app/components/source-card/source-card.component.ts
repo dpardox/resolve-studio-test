@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SourceService } from 'src/app/services/source.service';
 import { Source } from 'src/app/interfaces/source.interface';
+import { Company } from 'src/app/interfaces/company.interface';
 
 @Component({
   selector: 'app-source-card',
@@ -14,6 +15,8 @@ export class SourceCardComponent implements OnInit {
 
   @Output()
   public deleted = new EventEmitter();
+
+  get company(): Company { return this.source.company as Company; }
 
   constructor(private sourceService: SourceService) { }
 

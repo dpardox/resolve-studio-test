@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { CompanyService } from 'src/app/services/company.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SourceService } from 'src/app/services/source.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-file-page',
@@ -27,12 +28,12 @@ export class FilePageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
     private sourceService: SourceService,
+    private authService: AuthService,
     private router: Router,
-    // private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.companyService.list().subscribe((response) => {
+    this.companyService.admin(this.authService.session.user.id).subscribe((response) => {
       this.companies = response;
       this.form = this.buildForm();
       this.loaded = true;
@@ -76,10 +77,8 @@ export class FilePageComponent implements OnInit {
 
     this.sending = true;
 
-    console.log(this.form.value);
-
-    this.sourceService.store(this.form.value).subscribe(() => {
-      this.router.navigate(['/admin/files']);
+    this.sourceService.store(this.form.value).subscribe((response) => {
+      this.router.navigate(['/admin/dashboard', response.id]);
     }, () => {
       this.sending = false;
       alert('Ocurrio un error.');

@@ -34,4 +34,8 @@ export class SourceService {
     return this.http.get<SourceData>(`${environment.entrypoint.api}/sources/${id}`);
   }
 
+  public admin(id: number): Observable<Source[]> {
+    return this.http.get<Source[]>(`${environment.entrypoint.api}/sources/admin/${id}`);
+  }
+
 }

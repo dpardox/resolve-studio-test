@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  public role: string;
   public burger = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.role = this.authService.session.user.role;
+  }
 
   public logout() {
     if (confirm('¿Cerrar sesión?')) {

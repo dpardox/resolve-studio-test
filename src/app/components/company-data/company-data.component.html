@@ -5,6 +5,12 @@
   <div class="has-text-weight-bold is-size-4 has-margin-bottom-10 is-capitalized">{{ company.name }}</div>
   <div class="item is-flex has-margin-bottom-10">
     <span class="icon has-text-grey-light">
+      <i class="fas fa-user-tie"></i>
+    </span>
+    <span class="has-text-grey has-text-weight-bold">{{ company.user.name }} {{ company.user.lastname }}</span>
+  </div>
+  <div class="item is-flex has-margin-bottom-10">
+    <span class="icon has-text-grey-light">
       <i class="fas fa-map-marker-alt"></i>
     </span>
     <span class="has-text-grey has-text-weight-bold">{{ company.address }}</span>
@@ -16,13 +22,13 @@
     <span class="has-text-grey has-text-weight-bold">{{ company.phone }}</span>
   </div>
   <div class="buttons has-margin-top-20 is-centered">
-    <a class="button is-primary is-outlined" [routerLink]="['/admin/company', company.id]">
+    <a class="button is-primary is-fullwidth" [routerLink]="['/admin/company', company.id]">
       <span class="icon">
         <i class="fas fa-pen"></i>
       </span>
       <span>Editar</span>
     </a>
-    <button class="button is-danger is-outlined" (click)="delete(company.id)">
+    <button class="button is-danger is-outlined is-fullwidth" (click)="delete(company.id)">
       <span class="icon">
         <i class="fas fa-trash"></i>
       </span>

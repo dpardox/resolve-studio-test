@@ -13,11 +13,15 @@
     </div>
 
     <div class="navbar-menu" [ngClass]="{ 'is-active': burger }">
-      <div class="navbar-start">
+      <div class="navbar-start" [ngSwitch]="role">
         <a class="navbar-item" routerLink="/admin" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-        <a class="navbar-item" routerLink="/admin/users" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Usuarios</a>
-        <a class="navbar-item" routerLink="/admin/companies" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Empresas</a>
-        <a class="navbar-item" routerLink="/admin/sources" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+        <ng-container *ngSwitchCase="'superadmin'">
+          <a class="navbar-item" routerLink="/admin/users" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Usuarios</a>
+          <a class="navbar-item" routerLink="/admin/companies" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Empresas</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="'admin'">
+          <a class="navbar-item" routerLink="/admin/sources" routerLinkActive="has-text-weight-bold" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+        </ng-container>
       </div>
 
       <div class="navbar-end">

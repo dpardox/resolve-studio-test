@@ -1,30 +1,33 @@
 <div class="container">
-  <div class="columns is-multiline">
-    <div class="column is-6">
-      <div class="card has-text-centered">
-        <div class="card-content">
-          <p class="title">Gestión de usuarios</p>
-          <p class="subtitle has-text-grey-light">Super administrador</p>
-        </div>
-        <footer class="card-footer">
-          <a class="card-footer-item has-text-weight-bold has-text-primary" routerLink="/admin/users">Entrar</a>
-        </footer>
-      </div>
-    </div>
+  <div class="columns is-multiline" [ngSwitch]="role">
+    <ng-container *ngSwitchCase="'superadmin'">
 
-    <div class="column is-6">
-      <div class="card has-text-centered">
-        <div class="card-content">
-          <p class="title">Gestión de empresas</p>
-          <p class="subtitle has-text-grey-light">Super administrador</p>
+      <div class="column is-6">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title">Gestión de usuarios</p>
+            <p class="subtitle has-text-grey-light">Super administrador</p>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item has-text-weight-bold has-text-primary" routerLink="/admin/users">Entrar</a>
+          </footer>
         </div>
-        <footer class="card-footer">
-          <a class="card-footer-item has-text-weight-bold has-text-primary" routerLink="/admin/companies">Entrar</a>
-        </footer>
       </div>
-    </div>
 
-    <div class="column is-12">
+      <div class="column is-6">
+        <div class="card has-text-centered">
+          <div class="card-content">
+            <p class="title">Gestión de empresas</p>
+            <p class="subtitle has-text-grey-light">Super administrador</p>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item has-text-weight-bold has-text-primary" routerLink="/admin/companies">Entrar</a>
+          </footer>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="column is-12" *ngSwitchCase="'admin'">
       <div class="card has-text-centered">
         <div class="card-content">
           <p class="title">Dashboard</p>

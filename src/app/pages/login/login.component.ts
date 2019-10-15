@@ -39,10 +39,13 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.authService.login(this.form.value).subscribe(
-      (response) => {
-        this.authService.session = response;
-        this.loading = false;
-        this.router.navigate(['/admin']);
+      (credentials) => {
+        this.authService.session = { credentials, user: null };
+        this.authService.user().subscribe((user) => {
+          this.authService.session = { credentials, user };
+          this.loading = false;
+          this.router.navigate(['/admin']);
+        });
       }, (exception) => {
         alert('Verifique su correo electrónico y contraseña.');
         this.loading = false;

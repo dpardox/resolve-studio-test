@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="is-size-1 has-text-centered">Empresa</h1>
+  <h1 class="is-size-1 has-text-centered has-margin-bottom-30">Empresa</h1>
   <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate *ngIf="loaded else loading">
     <div class="columns">
       <div class="column is-6 is-offset-3">
@@ -49,6 +49,20 @@
         </div>
 
         <div class="field">
+          <div class="control has-icons-left">
+            <div class="select is-medium is-fullwidth" [ngClass]="{ 'is-danger': user.invalid && (user.dirty || user.touched || f.submitted) }">
+              <select formControlName="user">
+                <option value="" disabled>Seleccione un administrador</option>
+                <option *ngFor="let u of users" [value]="u.id">{{ u.name }} {{ u.lastname }}</option>
+              </select>
+            </div>
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-user-tie"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
           <button class="button is-medium is-fullwidth is-primary" [ngClass]="{ 'is-loading': sending }" type="submit">Guardar</button>
         </div>
       </div>
@@ -57,5 +71,5 @@
 </div>
 
 <ng-template #loading>
-  <h1 class="has-text-centered is-size-5 has-text-grey-light">Cargando...</h1>
+  <div class="title has-text-centered is-5 has-text-grey-light">Cargando...</div>
 </ng-template>

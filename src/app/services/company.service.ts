@@ -31,4 +31,8 @@ export class CompanyService {
     return this.http.delete<Company>(`${environment.entrypoint.api}/companies/${id}`);
   }
 
+  public admin(id: number): Observable<Company[]> {
+    return this.http.get<Company[]>(`${environment.entrypoint.api}/companies/admin/${id}`);
+  }
+
 }
