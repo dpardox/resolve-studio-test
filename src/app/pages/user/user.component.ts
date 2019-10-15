@@ -21,6 +21,7 @@ export class UserComponent implements OnInit {
   get lastname() { return this.form.get('lastname'); }
   get phone() { return this.form.get('phone'); }
   get birthday() { return this.form.get('birthday'); }
+  get role() { return this.form.get('role'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
   get confirmation() { return this.form.get('password_confirmation'); }
@@ -48,7 +49,7 @@ export class UserComponent implements OnInit {
   }
 
   private buildForm() {
-    const { name = '', lastname = '', phone = '', birthday = '', email = '' } = this.user ? this.user : {};
+    const { name = '', lastname = '', phone = '', birthday = '', role = 'admin', email = '' } = this.user ? this.user : {};
 
     const password = [Validators.maxLength(60)];
 
@@ -61,6 +62,7 @@ export class UserComponent implements OnInit {
       lastname: [lastname, [Validators.required, Validators.maxLength(40)]],
       phone: [phone, [Validators.required, Validators.minLength(7), Validators.maxLength(20), Validators.pattern(Regexp.number)]],
       birthday: [birthday, [Validators.required, Validators.pattern(Regexp.date)]],
+      role: [role, [Validators.required]],
       email: [email, [Validators.required, Validators.maxLength(40), Validators.pattern(Regexp.email)]],
       password: [null, password],
       password_confirmation: null,

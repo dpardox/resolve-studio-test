@@ -2,7 +2,13 @@
   <span class="icon is-large has-text-grey-lighter">
     <i class="fas fa-3x fa-user"></i>
   </span>
-  <div class="has-text-weight-bold is-size-4 has-margin-bottom-10 is-capitalized">{{ user.name }} {{ user.lastname }}</div>
+  <div class="has-margin-bottom-20">
+    <div class="title is-4 is-capitalized">{{ user.name }} {{ user.lastname }}</div>
+    <div class="subtitle is-6 has-text-grey-light" [ngSwitch]="user.role">
+      <span *ngSwitchCase="'admin'">Administrador</span>
+      <span *ngSwitchCase="'superadmin'">Super Administrador</span>
+    </div>
+  </div>
 
   <div class="item is-flex has-margin-bottom-10">
     <span class="icon has-text-grey-light">
