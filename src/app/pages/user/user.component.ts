@@ -19,6 +19,8 @@ export class UserComponent implements OnInit {
 
   get name() { return this.form.get('name'); }
   get lastname() { return this.form.get('lastname'); }
+  get phone() { return this.form.get('phone'); }
+  get birthday() { return this.form.get('birthday'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
   get confirmation() { return this.form.get('password_confirmation'); }
@@ -46,7 +48,7 @@ export class UserComponent implements OnInit {
   }
 
   private buildForm() {
-    const { name = '', lastname = '', email = '' } = this.user ? this.user : {};
+    const { name = '', lastname = '', phone = '', birthday = '', email = '' } = this.user ? this.user : {};
 
     const password = [Validators.maxLength(60)];
 
@@ -57,11 +59,16 @@ export class UserComponent implements OnInit {
     return this.formBuilder.group({
       name: [name, [Validators.required, Validators.maxLength(40)]],
       lastname: [lastname, [Validators.required, Validators.maxLength(40)]],
+      phone: [phone, [Validators.required, Validators.minLength(7), Validators.maxLength(20), Validators.pattern(Regexp.number)]],
+      birthday: [birthday, [Validators.required, Validators.pattern(Regexp.date)]],
       email: [email, [Validators.required, Validators.maxLength(40), Validators.pattern(Regexp.email)]],
       password: [null, password],
       password_confirmation: null,
     }, {
-      validator: this.matchingPasswords('password', 'password_confirmation')
+      validator: [
+        this.matchingPasswords('password', 'password_confirmation'),
+        this.validateDate('birthday')
+      ],
     });
   }
 
@@ -75,6 +82,30 @@ export class UserComponent implements OnInit {
       } else {
         return confirmationField.setErrors(null);
       }
+    };
+  }
+
+  private validateDate(date: string) {
+    return (group: FormGroup) => {
+      const dateField = group.controls[date];
+
+      const [ year = null, month = null, day = null ] = dateField.value.split('-');
+
+      if (Number(year) < 1000 || Number(year) > 3000 || Number(month) === 0 || Number(month) > 12) {
+        return dateField.setErrors({ incorrect: true });
+      }
+
+      const monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
+      if (Number(year) % 400 === 0 || (Number(year) % 100 !== 0 && Number(year) % 4 === 0)) {
+          monthLength[1] = 29;
+      }
+
+      if (Number(day) === 0 || Number(day) > monthLength[Number(month) - 1]) {
+        return dateField.setErrors({ incorrect: true });
+      }
+
+      return dateField.setErrors(null);
     };
   }
 

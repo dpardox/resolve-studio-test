@@ -35,6 +35,36 @@
 
         <div class="field">
           <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="text" formControlName="phone" placeholder="Teléfono">
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-phone"></i>
+            </span>
+            <span class="icon is-small is-right has-text-primary" *ngIf="phone.valid">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="icon is-small is-right has-text-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched || f.submitted)">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="text" formControlName="birthday" placeholder="yyyy-mm-dd">
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-birthday-cake"></i>
+            </span>
+            <span class="icon is-small is-right has-text-primary" *ngIf="birthday.valid">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="icon is-small is-right has-text-danger" *ngIf="birthday.invalid && (birthday.dirty || birthday.touched || f.submitted)">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
             <input class="input is-medium" type="email" formControlName="email" placeholder="Correo electrónico">
             <span class="icon is-small is-left has-text-grey-light">
               <i class="fas fa-envelope"></i>
