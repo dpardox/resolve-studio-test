@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   public form: FormGroup;
 
   get name() { return this.form.get('name'); }
+  get lastname() { return this.form.get('lastname'); }
   get email() { return this.form.get('email'); }
   get password() { return this.form.get('password'); }
   get confirmation() { return this.form.get('password_confirmation'); }
@@ -45,7 +46,7 @@ export class UserComponent implements OnInit {
   }
 
   private buildForm() {
-    const { name = '', email = '' } = this.user ? this.user : {};
+    const { name = '', lastname = '', email = '' } = this.user ? this.user : {};
 
     const password = [Validators.maxLength(60)];
 
@@ -55,6 +56,7 @@ export class UserComponent implements OnInit {
 
     return this.formBuilder.group({
       name: [name, [Validators.required, Validators.maxLength(40)]],
+      lastname: [lastname, [Validators.required, Validators.maxLength(40)]],
       email: [email, [Validators.required, Validators.maxLength(40), Validators.pattern(Regexp.email)]],
       password: [null, password],
       password_confirmation: null,

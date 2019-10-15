@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="is-size-1 has-text-centered">Usuario</h1>
+  <h1 class="is-size-1 has-text-centered has-margin-bottom-30">Usuario</h1>
   <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate *ngIf="loaded else loading">
     <div class="columns">
       <div class="column is-6 is-offset-3">
@@ -13,6 +13,21 @@
               <i class="fas fa-check"></i>
             </span>
             <span class="icon is-small is-right has-text-danger" *ngIf="name.invalid && (name.dirty || name.touched || f.submitted)">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="text" formControlName="lastname" placeholder="Apellido">
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-address-card"></i>
+            </span>
+            <span class="icon is-small is-right has-text-primary" *ngIf="lastname.valid">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="icon is-small is-right has-text-danger" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched || f.submitted)">
               <i class="fas fa-times"></i>
             </span>
           </p>
