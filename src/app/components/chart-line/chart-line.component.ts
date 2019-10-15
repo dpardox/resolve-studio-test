@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import * as Chart from 'chart.js';
-import { SourceData, SourceItem } from 'src/app/interfaces/source.interface';
+import { SourceItem } from 'src/app/interfaces/source.interface';
 
 @Component({
   selector: 'app-chart-line',
