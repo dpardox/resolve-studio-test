@@ -1,77 +1,75 @@
-<section class="section">
-  <div class="container">
-    <h1 class="is-size-1 has-text-centered has-margin-bottom-30">Fuente de tráfico</h1>
-    <div class="columns">
-      <div class="column is-6 is-offset-3">
-        <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate *ngIf="loaded else loading">
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input is-medium" type="text" formControlName="name" placeholder="Nombre de la fuente">
-              <span class="icon is-small is-left has-text-grey-light">
-                <i class="fas fa-file"></i>
-              </span>
-              <span class="icon is-small is-right has-text-primary" *ngIf="name.valid">
-                <i class="fas fa-check"></i>
-              </span>
-              <span class="icon is-small is-right has-text-danger" *ngIf="name.invalid && (name.dirty || name.touched || f.submitted)">
-                <i class="fas fa-times"></i>
-              </span>
-            </p>
-          </div>
+<div class="container">
+  <h1 class="is-size-1 has-text-centered has-margin-bottom-30">Fuente de tráfico</h1>
+  <div class="columns">
+    <div class="column is-6 is-offset-3">
+      <form [formGroup]="form" (submit)="onSubmit()" #f="ngForm" novalidate *ngIf="loaded else loading">
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="text" formControlName="name" placeholder="Nombre de la fuente">
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-file"></i>
+            </span>
+            <span class="icon is-small is-right has-text-primary" *ngIf="name.valid">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="icon is-small is-right has-text-danger" *ngIf="name.invalid && (name.dirty || name.touched || f.submitted)">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
 
-          <div class="field">
-            <div class="control has-icons-left">
-              <div class="select is-medium is-fullwidth" [ngClass]="{ 'is-danger': company.invalid && (company.dirty || company.touched || f.submitted) }">
-                <select formControlName="company" [ngClass]="{ 'has-text-grey-light': company.invalid }">
-                  <option disabled selected value="">Empresa</option>
-                  <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
-                </select>
-              </div>
-              <span class="icon is-small is-left has-text-grey-light">
-                <i class="fas fa-building"></i>
-              </span>
+        <div class="field">
+          <div class="control has-icons-left">
+            <div class="select is-medium is-fullwidth" [ngClass]="{ 'is-danger': company.invalid && (company.dirty || company.touched || f.submitted) }">
+              <select formControlName="company" [ngClass]="{ 'has-text-grey-light': company.invalid }">
+                <option disabled selected value="">Empresa</option>
+                <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+              </select>
             </div>
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-building"></i>
+            </span>
           </div>
+        </div>
 
-          <div class="field">
-            <div class="file is-right is-info has-background-white is-fullwidth is-medium" [ngClass]="{ 'is-danger': file.invalid && (file.dirty || file.touched || f.submitted) }">
-              <label class="file-label">
-                <input class="file-input" type="file" accept=".csv" (change)="onFileChange($event)">
-                <span class="file-cta">
-                  <span class="file-icon">
-                    <i class="fas fa-file-upload"></i>
-                  </span>
-                  <span class="file-label">CSV</span>
+        <div class="field">
+          <div class="file is-right is-info has-background-white is-fullwidth is-medium" [ngClass]="{ 'is-danger': file.invalid && (file.dirty || file.touched || f.submitted) }">
+            <label class="file-label">
+              <input class="file-input" type="file" accept=".csv" (change)="onFileChange($event)">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-file-upload"></i>
                 </span>
-                <span class="file-name has-text-grey-light" *ngIf="!filename">Archivo CSV</span>
-                <span class="file-name" *ngIf="filename">{{ filename }}</span>
-              </label>
-            </div>
+                <span class="file-label">CSV</span>
+              </span>
+              <span class="file-name has-text-grey-light" *ngIf="!filename">Archivo CSV</span>
+              <span class="file-name" *ngIf="filename">{{ filename }}</span>
+            </label>
           </div>
+        </div>
 
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input is-medium has-text-weight-bold" type="text" formControlName="separator" placeholder="Separador">
-              <span class="icon is-small is-left has-text-grey-light">
-                <i class="fas fa-file-csv"></i>
-              </span>
-              <span class="icon is-small is-right has-text-primary" *ngIf="separator.valid">
-                <i class="fas fa-check"></i>
-              </span>
-              <span class="icon is-small is-right has-text-danger" *ngIf="separator.invalid && (separator.dirty || separator.touched || f.submitted)">
-                <i class="fas fa-times"></i>
-              </span>
-            </p>
-          </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium has-text-weight-bold" type="text" formControlName="separator" placeholder="Separador">
+            <span class="icon is-small is-left has-text-grey-light">
+              <i class="fas fa-file-csv"></i>
+            </span>
+            <span class="icon is-small is-right has-text-primary" *ngIf="separator.valid">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="icon is-small is-right has-text-danger" *ngIf="separator.invalid && (separator.dirty || separator.touched || f.submitted)">
+              <i class="fas fa-times"></i>
+            </span>
+          </p>
+        </div>
 
-          <div class="field">
-            <button class="button is-medium is-fullwidth is-primary" [ngClass]="{ 'is-loading': sending }" type="submit">Guardar</button>
-          </div>
-        </form>
-      </div>
+        <div class="field">
+          <button class="button is-medium is-fullwidth is-primary" [ngClass]="{ 'is-loading': sending }" type="submit">Guardar</button>
+        </div>
+      </form>
     </div>
   </div>
-</section>
+</div>
 
 <ng-template #loading>
   <h1 class="has-text-centered is-size-5 has-text-grey-light">Cargando...</h1>

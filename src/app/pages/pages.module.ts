@@ -37,15 +37,5 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
     ReactiveFormsModule,
     ComponentsModule
   ],
-  exports: [
-    CompaniesComponent,
-    CompanyComponent,
-    ForgotPasswordComponent,
-    HomeComponent,
-    LoginComponent,
-    ResetPasswordComponent,
-    UserComponent,
-    UsersComponent,
-  ]
 })
 export class PagesModule { }

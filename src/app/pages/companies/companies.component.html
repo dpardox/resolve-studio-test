@@ -1,21 +1,19 @@
-<section class="section">
-  <div class="container" *ngIf="companies else loading">
-    <div class="has-text-centered has-margin-bottom-20">
-      <a class="button is-medium is-primary" routerLink="/admin/company">
-        <span class="icon">
-          <i class="fas fa-building"></i>
-        </span>
-        <span>Nueva empresa</span>
-      </a>
-    </div>
+<div class="container" *ngIf="companies else loading">
+  <div class="has-text-centered has-margin-bottom-20">
+    <a class="button is-medium is-primary" routerLink="/admin/company">
+      <span class="icon">
+        <i class="fas fa-building"></i>
+      </span>
+      <span>Nueva empresa</span>
+    </a>
+  </div>
 
-    <div class="columns is-multiline is-centered">
-      <div class="column is-6-tablet is-4-desktop" *ngFor="let company of companies; let i = index">
-        <app-company-data [company]="company" (deleted)="delete(i)"></app-company-data>
-      </div>
+  <div class="columns is-multiline is-centered">
+    <div class="column is-6-tablet is-4-desktop" *ngFor="let company of companies; let i = index">
+      <app-company-data [company]="company" (deleted)="delete(i)"></app-company-data>
     </div>
   </div>
-</section>
+</div>
 
 <ng-template #loading>
   <h1 class="has-text-centered is-size-5 has-text-grey-lighter">Cargando...</h1>

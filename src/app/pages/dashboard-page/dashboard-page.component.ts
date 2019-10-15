@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SourceService } from 'src/app/services/source.service';
+import { ActivatedRoute } from '@angular/router';
+import { SourceData } from 'src/app/interfaces/source.interface';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -7,8 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPageComponent implements OnInit {
 
-  constructor() { }
+  public data: SourceData;
 
-  ngOnInit() { }
+  constructor(private sourceService: SourceService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.sourceService.data(params.file).subscribe((response) => {
+        this.data = response;
+      });
+    });
+  }
 
 }

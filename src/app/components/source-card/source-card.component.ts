@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Source } from 'webpack-sources';
 import { SourceService } from 'src/app/services/source.service';
+import { Source } from 'src/app/interfaces/source.interface';
 
 @Component({
   selector: 'app-source-card',

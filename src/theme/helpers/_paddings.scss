@@ -1,10 +1,16 @@
-$padding-sizes: (40);
+$padding-sizes: (10, 40);
 $padding-names: ('top', 'right', 'bottom', 'left');
 
 .has-padding- {
   @each $size in $padding-sizes {
     &#{$size} {
       padding: #{$size}px !important;
+
+      @include mobile {
+        &-mobile {
+          padding: #{$size}px !important;
+        }
+      }
 
       @include tablet {
         &-tablet {

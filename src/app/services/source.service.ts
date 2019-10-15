@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Source } from '../interfaces/source.interface';
+import { Source, SourceData } from '../interfaces/source.interface';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -28,6 +28,10 @@ export class SourceService {
 
   public delete(id: number): Observable<Source> {
     return this.http.delete<Source>(`${environment.entrypoint.api}/sources/${id}`);
+  }
+
+  public data(id: number): Observable<SourceData> {
+    return this.http.get<SourceData>(`${environment.entrypoint.api}/sources/${id}`);
   }
 
 }

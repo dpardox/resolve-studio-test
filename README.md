@@ -54,11 +54,11 @@ Ejecute `ng g m <directory>/<name> --flat -m <modulo>.module` para crear un nuev
 
 #### Página
 
-Ejecute `ng g c pages/<name>-page` para crear una nueva página.
+Ejecute `ng g c pages/<name>-page --skipSelector` para crear una nueva página.
 
 #### Componente
 
-Ejecute `ng g c components/<name>` para crear un nuevo componente.
+Ejecute `ng g c components/<name> --export` para crear un nuevo componente.
 
 #### Interface
 

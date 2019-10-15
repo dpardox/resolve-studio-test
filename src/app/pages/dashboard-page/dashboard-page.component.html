@@ -1,1 +1,29 @@
-<p>dashboard-page works!</p>
+<div class="container" *ngIf="data else loading">
+  <div class="columns">
+    <div class="column is-6">
+      <app-dashboard-card [data]="{ title: 'Sesiones', value: data.indicators.sessions, color: 'primary' }"></app-dashboard-card>
+    </div>
+    <div class="column is-6">
+      <app-dashboard-card [data]="{ title: 'Conversiones', value: data.indicators.conversions, color: 'warning' }"></app-dashboard-card>
+    </div>
+  </div>
+
+  <div class="columns is-multiline is-centered">
+    <div class="column is-6-desktop is-12-tablet">
+      <app-chart-line title="Campañas" [data]="data.campaigns"></app-chart-line>
+    </div>
+    <div class="column is-6-desktop is-12-tablet">
+      <app-chart-line title="Fuentes" [data]="data.sources"></app-chart-line>
+    </div>
+    <div class="column is-6-desktop is-12-tablet">
+      <app-chart-pie title="Campañas" [data]="data.campaigns"></app-chart-pie>
+    </div>
+  </div>
+
+  <div class="columns">
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="title has-text-centered is-5 has-text-grey-light">Cargando...</div>
+</ng-template>
